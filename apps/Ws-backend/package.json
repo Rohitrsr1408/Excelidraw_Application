@@ -1,5 +1,5 @@
 {
-  "name": "ws-backend",
+  "name": "@repo/backend-common",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/ws": "^8.18.1"
+    "@types/ws": "^8.18.1",
+    "@repo/backend_common": "workspace:*"
   },
   "keywords": [],
   "author": "",
