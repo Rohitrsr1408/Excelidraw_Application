@@ -26,6 +26,8 @@ app.post("/signin", (req, res) => {
 
 app.post("/room", middleware, (req, res) => {
   const data = CreateUserSchema.safeParse(req.body);
+  //@ts-ignore
+  console.log(req.userId);
   if (!data.success) {
     return res.status(400).json({ message: "Incorrect Inputs" });
   }
