@@ -1,7 +1,8 @@
 {
-  "name": "@repo/backend-common",
+  "name": "ws-backend",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -b",
@@ -16,7 +17,7 @@
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/ws": "^8.18.1",
-    "@repo/backend_common": "workspace:*"
+    "@repo/backend-common": "workspace:*"
   },
   "keywords": [],
   "author": "",
