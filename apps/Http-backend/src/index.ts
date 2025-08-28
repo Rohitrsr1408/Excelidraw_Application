@@ -30,25 +30,49 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.post("/signin", (req, res) => {
-  const data = SigninSchema.safeParse(req.body);
-  if (!data.success) {
+app.post("/signin", async (req, res) => {
+  const parsedData = SigninSchema.safeParse(req.body);
+  if (!parsedData.success) {
     return res.status(400).json({ message: "Incorrect Inputs" });
   }
-  let userid = 1;
-  const token = jwt.sign({ userid }, JWT_SECRET);
+  const User = await prismaClient.user.findFirst({
+    where: {
+      email: parsedData.data.username,
+      password: parsedData.data.password,
+    },
+  });
+  if (!User) {
+    res.status(403).json({
+      message: "Not Authorized",
+    });
+  }
+  const token = jwt.sign({ userId: User?.id }, JWT_SECRET);
 
   res.json({ token });
 });
 
-app.post("/room", middleware, (req, res) => {
-  const data = RoomSchema.safeParse(req.body);
-  //@ts-ignore
-  console.log(req.userId);
-  if (!data.success) {
+app.post("/room", middleware, async (req, res) => {
+  const parsedData = RoomSchema.safeParse(req.body);
+  if (!parsedData.success) {
     return res.status(400).json({ message: "Incorrect Inputs" });
   }
+  const userId = (req as any).userId;
+
+  try {
+    const room = await prismaClient.room.create({
+      data: {
+        slug: parsedData.data.name,
+        adminId: userId,
+      },
+    });
+    res.json({
+      roomId: room?.id,
+    });
+  } catch (error) {
+    res.status(411).json({ message: "Room with same name exist" });
+  }
 });
+
 app.listen(4040, () => {
   console.log("Server started at port 4040");
 });
