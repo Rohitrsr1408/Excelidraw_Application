@@ -21,12 +21,12 @@ Building ✏️ ExceliDraw — A collaborative, Excel-style whiteboard for drawi
 	19. HTTP route for GET/chats?room=123<br>
 	20. HTTP route for GET/room:slug for fetching room ID<br>
 	21. Frontend:- <br>
-			&nbsp;  · Made an input box and a button .On clicking button routing to /room/roomID.(room folder).<br>
-			&nbsp;  · Made a folder Room in App where I created page.tsx file which contains ChatRoom function..which fetches the roomId and send it as prop to chatroom.jsx<br>
-			&nbsp;  · Config.ts file contains BACKEND_URL and WS_URL<br>
-			&nbsp;  · Made components folder which contain chatroom.jsx and chatroomclient.jsx.<br>
-			&nbsp;  · Chatroom.jsx function fetches all chats with room id and stores in msgs[] and send to Chatroomclient.jsx as prop.<br>
-			&nbsp;  · ChatroomClient.jsx for ws connection and show chats on UI.<br>
+	&nbsp;&nbsp;  · Made an input box and a button .On clicking button routing to /room/roomID.(room folder).<br>
+	&nbsp;&nbsp;  · Made a folder Room in App where I created page.tsx file which contains ChatRoom function..which fetches the roomId and send it as prop to chatroom.jsx<br>
+	&nbsp;&nbsp;  · Config.ts file contains BACKEND_URL and WS_URL<br>
+	&nbsp;&nbsp; · Made components folder which contain chatroom.jsx and chatroomclient.jsx.<br>
+	&nbsp;&nbsp;  · Chatroom.jsx function fetches all chats with room id and stores in msgs[] and send to Chatroomclient.jsx as prop.<br>
+	&nbsp;&nbsp;  · ChatroomClient.jsx for ws connection and show chats on UI.<br>
 
 
 
