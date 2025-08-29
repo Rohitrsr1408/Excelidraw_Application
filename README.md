@@ -14,19 +14,19 @@ Building ✏️ ExceliDraw — A collaborative, Excel-style whiteboard for drawi
 	12. Decode the token in the websocket server as well. Send the token to the websocket server in a query param for now.<br>
 	13. Initialize a new 'db' package where you write the schema of the project.<br>
 	14. Import the db package in http layer and start putting things in the DB.<br>
-	15. Add a common package where we add the zod schema and the JWT_SECRET..Thus done Zod validation.
-	16. Defining the schema.prisma
-	17. Complete the http backend
-	18. Ws layer ,room management,broadcast messages
-	19. HTTP route for GET/chats?room=123
-	20. HTTP route for GET/room:slug for fetching room ID
-	21. Frontend:- 
-			· Made an input box and a button .On clicking button routing to /room/roomID.(room folder).
-			· Made a folder Room in App where I created page.tsx file which contains ChatRoom function..which fetches the roomId and send it as prop to chatroom.jsx
-			· Config.ts file contains BACKEND_URL and WS_URL
-			· Made components folder which contain chatroom.jsx and chatroomclient.jsx.
-			· Chatroom.jsx function fetches all chats with room id and stores in msgs[] and send to Chatroomclient.jsx as prop.
-			· ChatroomClient.jsx for ws connection and show chats on UI.
+	15. Add a common package where we add the zod schema and the JWT_SECRET..Thus done Zod validation.<br>
+	16. Defining the schema.prisma<br>
+	17. Complete the http backend<br>
+	18. Ws layer ,room management,broadcast messages<br>
+	19. HTTP route for GET/chats?room=123<br>
+	20. HTTP route for GET/room:slug for fetching room ID<br>
+	21. Frontend:- <br>
+			· Made an input box and a button .On clicking button routing to /room/roomID.(room folder).<br>
+			· Made a folder Room in App where I created page.tsx file which contains ChatRoom function..which fetches the roomId and send it as prop to chatroom.jsx<br>
+			· Config.ts file contains BACKEND_URL and WS_URL<br>
+			· Made components folder which contain chatroom.jsx and chatroomclient.jsx.<br>
+			· Chatroom.jsx function fetches all chats with room id and stores in msgs[] and send to Chatroomclient.jsx as prop.<br>
+			· ChatroomClient.jsx for ws connection and show chats on UI.<br>
 
 
 
