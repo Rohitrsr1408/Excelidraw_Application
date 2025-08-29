@@ -20,13 +20,25 @@ Building ✏️ ExceliDraw — A collaborative, Excel-style whiteboard for drawi
 	18. Ws layer ,room management,broadcast messages<br>
 	19. HTTP route for GET/chats?room=123<br>
 	20. HTTP route for GET/room:slug for fetching room ID<br>
-	21. Frontend:- <br>
-	&nbsp;&nbsp;  · Made an input box and a button .On clicking button routing to /room/roomID.(room folder).<br>
-	&nbsp;&nbsp;  · Made a folder Room in App where I created page.tsx file which contains ChatRoom function..which fetches the roomId and send it as prop to chatroom.jsx<br>
-	&nbsp;&nbsp;  · Config.ts file contains BACKEND_URL and WS_URL<br>
-	&nbsp;&nbsp; · Made components folder which contain chatroom.jsx and chatroomclient.jsx.<br>
-	&nbsp;&nbsp;  · Chatroom.jsx function fetches all chats with room id and stores in msgs[] and send to Chatroomclient.jsx as prop.<br>
-	&nbsp;&nbsp;  · ChatroomClient.jsx for ws connection and show chats on UI.<br>
+    21. Web-folder Frontend(For basic chat application for our backend):- <br>
+				· Made an input box and a button .On clicking button routing to /room/roomID.(room folder).<br>
+				· Made a folder Room in App where I created page.tsx file which contains ChatRoom function..which fetches the roomId and send it as prop to chatroom.jsx<br>
+				· Config.ts file contains BACKEND_URL and WS_URL<br>
+				· Made components folder which contain chatroom.jsx and chatroomclient.jsx.<br>
+				· Chatroom.jsx function fetches all chats with room id and stores in msgs[] and send to Chatroomclient.jsx as prop.<br>
+				· ChatroomClient.jsx for ws connection and show chats on UI.<br>
+		This was frontend for the basic chat application. Now ,building excelidraw frontend.<br>
+
+	  <h1>EXCELIDRAW - FRONTEND</h1> <br>
+	    1.Initialize new  next.js project named excelidraw frontend<br>
+		2. Used bolt ai for landing page ui (saves time)<br>
+		3. Created components folder and inside it created AuthPage.tsx which contains form logic for signin sign up.<br>
+		4. Created 2 folders each for sign in and sign up.<br>
+		5. Designed landing or home page <br>
+			
+	
+	   
+	
 
 
 
