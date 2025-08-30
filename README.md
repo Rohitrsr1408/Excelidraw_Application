@@ -35,6 +35,8 @@ Building ✏️ ExceliDraw — A collaborative, Excel-style whiteboard for drawi
 		3. Created components folder and inside it created AuthPage.tsx which contains form logic for signin sign up.<br>
 		4. Created 2 folders each for sign in and sign up.<br>
 		5. Designed landing or home page <br>
+		6. Building logic for creating shapes using canvas from scratch(no library).<br>
+		7. Completed rectangle shape logic and drawing multiple rectangles on canvas.<br>
 			
 	
 	   
