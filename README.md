@@ -28,7 +28,16 @@ Building ✏️ ExceliDraw — A collaborative, Excel-style whiteboard for drawi
 				· Chatroom.jsx function fetches all chats with room id and stores in msgs[] and send to Chatroomclient.jsx as prop.<br>
 				· ChatroomClient.jsx for ws connection and show chats on UI.<br>
 		This was frontend for the basic chat application. Now ,building excelidraw frontend.<br>
+  
+# EXCELIDRAW - FRONTEND<br>
+1.Initialize new  next.js project named excelidraw frontend<br>
+2. Used bolt ai for landing page ui (saves time)<br>
+3. Created components folder and inside it created AuthPage.tsx which contains form logic for signin sign up.<br>
+4. Created 2 folders each for sign in and sign up.<br>
+5.Designed landing or home page<br>
 
+
+<<<<<<< HEAD
 	  <h1>EXCELIDRAW - FRONTEND</h1> <br>
 	    1.Initialize new  next.js project named excelidraw frontend<br>
 		2. Used bolt ai for landing page ui (saves time)<br>
