@@ -40,9 +40,18 @@ Building ✏️ ExceliDraw — A collaborative, Excel-style whiteboard for drawi
 		5. Designed landing or home page <br>
 		6. Building logic for creating shapes using canvas from scratch(no library).<br>
 		7. Completed rectangle shape logic and drawing multiple rectangles on canvas.<br>
-			
+		8. Connecting backend and frontend..From backend , chats which was storing all messages..would now store shapes data and thus fetching all existing shapes on canvas.<br>
+		9. ClearCanvas function re-renders the complete canvas and display existingshapes.<br>
+		10. Debugged all errors for now ..Canvas is working multiple clients or users can draw rectangles an d it will be stored in db and broadcasted to all users in that room.<br>
+		11. Fixed canvas size to the window size so disabled scrolling.<br>
+		12. Making topbar containing icons of shapes to select shapes. Used icon buttons and give them functionality to change whether to draw rectangle , circle or pencil.<br>
+		13. Figured out logic for drawing a circle and given conditions acc to it at many places like first maintaining schema of shape if its circle and then in clearcanvas function to draw a circle.<br>
+		14. Made a class in different file to reduce chunk of code and make it look easy.<br>
+	    15. Completed the basic excelidraw.<br>	
 	
-	   
+	   # TO DO NEXT:-<br>
+	   1. Adding pencil functionality.<br>
+	   2. Add Panning and zooming functionality.<br>
 	
 
 
