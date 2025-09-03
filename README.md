@@ -49,9 +49,9 @@ Building ✏️ ExceliDraw — A collaborative, Excel-style whiteboard for drawi
 		14. Made a class in different file to reduce chunk of code and make it look easy.<br>
 	    15. Completed the basic excelidraw.<br>	
 	
-	   # TO DO NEXT:-<br>
-	   1. Adding pencil functionality.<br>
-	   2. Add Panning and zooming functionality.<br>
+  # TO DO NEXT:-<br>
+ 1. Adding pencil functionality.<br>
+ 2. Add Panning and zooming functionality.<br>
 	
 
 
