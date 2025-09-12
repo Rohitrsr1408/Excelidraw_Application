@@ -132,6 +132,7 @@ export class Game {
         centerX: this.startX + radius,
         centerY: this.startY + radius,
       };
+      
     }
 
     if (!shape) {
