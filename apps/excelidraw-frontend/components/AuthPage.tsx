@@ -5,6 +5,7 @@ import Navbar from "./ui/Navbar";
 import axios from "axios";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
+import { ArrowRightCircle } from "lucide-react";
 
 export function AuthPage({ isSignin }: { isSignin: boolean }) {
   const router = useRouter();
@@ -108,6 +109,16 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
               >
                 {isSignin ? "Sign in" : "Sign up"}
               </Button>
+            </div>
+            <div className="w-full text-center p-4 flex justify-evenly ">
+              {isSignin ? "New User?  " : "Already have an account? "}
+
+              {isSignin ? (
+                <a href="/signup">Sign Up</a>
+              ) : (
+                <a href="/signin">Sign In</a>
+              )}
+              
             </div>
           </div>
         </div>
