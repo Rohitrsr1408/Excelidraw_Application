@@ -1,6 +1,5 @@
 import { Tool } from "@/components/Canvas";
 import { getExistingShapes } from "./http";
-
 type Shape =
   | {
       type: "rect";

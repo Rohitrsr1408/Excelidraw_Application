@@ -111,6 +111,32 @@ app.get("/room/:slug", async (req, res) => {
   res.json({ roomId: room.id });
 });
 
+app.post("/user", async (req, res) => {
+  try {
+    const { slug, adminId } = req.body; // ✅ read from body
+    if (!slug || !adminId) {
+      return res.status(400).json({ message: "slug and adminId are required" });
+    }
+
+    const room = await prismaClient.room.findFirst({
+      where: {
+        slug: slug,
+        adminId: adminId,
+      },
+    });
+
+    if (!room) {
+      return res.status(404).json({ message: "No room found" });
+    }
+
+    res.json({ roomId: room.id });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
 app.listen(4040, () => {
   console.log("Server started at port 4040");
 });

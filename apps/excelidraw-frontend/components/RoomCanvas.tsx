@@ -4,13 +4,18 @@ import { WS_BACKEND } from "@/config";
 
 import { useEffect, useRef, useState } from "react";
 import { Canvas } from "@/components/Canvas";
-
+import { useRouter } from "next/navigation";
 export default function RoomCanvas({ roomId }: { roomId: string }) {
   const [socket, setSocket] = useState<WebSocket | null>(null);
-
+  const router = useRouter();
   useEffect(() => {
+    const token=localStorage.getItem("token");
+    if(!token){
+      router.push("/signin");
+      return;
+    }
     const ws = new WebSocket(
-      `${WS_BACKEND}?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMjUzM2UzZi0xZTBiLTQ3NmQtYTI3Ni1kYmY1YjQzMmRlY2YiLCJpYXQiOjE3NTc2ODYxNzJ9.g_fzCFMB4uRsaqKUKTrTM3Fxq2zhP6zR1JROHJZJVJY`
+      `${WS_BACKEND}?token=${token}`
     );
 
     ws.onopen = () => {

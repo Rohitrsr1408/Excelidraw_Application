@@ -3,38 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import heroImage from "./assets/heroimage.jpg";
 import Link from "next/link";
+import Navbar from "@/components/ui/Navbar";
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen">
       {/* Navigation */}
 
-      <nav className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-2 ml-4">
-            <div className="h-8 w-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <Zap className="h-5 w-5 text-primary-foreground " />
-            </div>
-            <span className="font-bold text-xl ">ExceliDraw</span>
-          </div>
-          <div className="flex items-center space-x-4 justify-between">
-            <Button
-              variant="ghost"
-              className="hover:scale-110 transition-all cursor-pointer "
-            >
-              About
-            </Button>
-            <Link href={"/signup"}>
-              <Button
-                variant="hero"
-                className="hover:scale-110 transition-all cursor-pointer mr-[-100px] "
-              >
-                Get Started
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-subtle py-24 lg:py-32">
@@ -62,14 +38,14 @@ const LandingPage = () => {
                   </Button>
                 </Link>
                 <Link href={"/signup"}>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="group hover:scale-110 transition-all cursor-pointer"
-                >
-                  Sign up
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="group hover:scale-110 transition-all cursor-pointer"
+                  >
+                    Sign up
                   </Button>
-                  </Link>
+                </Link>
               </div>
               <p className="text-sm text-muted-foreground mt-4 ml-4">
                 • Free forever • Export anywhere
@@ -162,10 +138,12 @@ const LandingPage = () => {
               setup, just creativity
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="group">
-                Start Drawing Now
-                <ArrowRight className="ml-2 h-4 w-4 cursor-pointer group-hover:translate-x-1 hover:scale-110 transition-all " />
-              </Button>
+              <Link href={"/room"}>
+                <Button variant="hero" size="lg" className="group">
+                  Start Drawing Now
+                  <ArrowRight className="ml-2 h-4 w-4 cursor-pointer group-hover:translate-x-1 hover:scale-110 transition-all " />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
