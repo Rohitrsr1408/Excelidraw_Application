@@ -9,19 +9,16 @@ const navbar=() => {
             <div className="h-8 w-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <Zap className="h-5 w-5 text-primary-foreground " />
             </div>
-            <span className="font-bold text-xl ">ExceliDraw</span>
+            <Link href="/">
+              <span className="font-bold text-xl ">ExceliDraw</span>
+              </Link>
           </div>
           <div className="flex items-center space-x-4 justify-between">
-            <Button
-              variant="ghost"
-              className="hover:scale-110 transition-all cursor-pointer "
-            >
-              About
-            </Button>
+            
             <Link href={"/signup"}>
               <Button
                 variant="hero"
-                className="hover:scale-110 transition-all cursor-pointer mr-[-100px] "
+                className="hover:scale-110 transition-all cursor-pointer m-4 "
               >
                 Get Started
               </Button>

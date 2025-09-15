@@ -169,7 +169,10 @@ const LandingPage = () => {
               <a href="#" className="hover:text-foreground transition-colors">
                 Support
               </a>
-              <a href="#" className="hover:text-foreground transition-colors">
+              <a
+                href="https://github.com/Rohitrsr1408/Excelidraw_Application"
+                className="hover:text-foreground transition-colors"
+              >
                 GitHub
               </a>
             </div>

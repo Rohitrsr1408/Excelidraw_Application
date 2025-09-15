@@ -6,7 +6,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRightCircle } from "lucide-react";
-
+import toast from "react-hot-toast";
 export function AuthPage({ isSignin }: { isSignin: boolean }) {
   const router = useRouter();
   const nameRef = useRef<HTMLInputElement>(null);
@@ -26,11 +26,11 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
 
       const token = response.data.token;
       localStorage.setItem("token", token);
-      alert("Signed In successfully!!");
+      toast.success("Signed In Successfully");
 
       router.push("/room"); // ✅ navigate
     } catch (error) {
-      alert("User doesn't exist !!");
+      toast.error("User doesn't Exist . Please Sign Up !!")
     }
   }
 
@@ -44,16 +44,16 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
       });
       router.push("/signin");
       console.log(response);
-      alert("User created successfully");
+      toast.success("User Signed up Successfully!");
     } catch (error: any) {
       console.error(error);
 
       if (error.response?.status === 400) {
-        alert("Incorrect Inputs");
+        toast.error("Incorrect Inputs");
         return;
       }
 
-      alert("Email Already Exists");
+      toast.error("Email already registered ! Please Sign in")
     }
   }
 

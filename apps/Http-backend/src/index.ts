@@ -136,7 +136,18 @@ app.post("/user", async (req, res) => {
   }
 });
 
-
+app.post("/adminId", async (req, res) => {
+  const roomId = Number(req.body.roomId);
+  const room = await prismaClient.room
+    .findUnique({
+      where: { id: roomId },
+      select: { adminId: true , slug: true },
+    })
+  res.json({
+    adminId: room?.adminId,
+    slug: room?.slug
+   });
+});
 app.listen(4040, () => {
   console.log("Server started at port 4040");
 });

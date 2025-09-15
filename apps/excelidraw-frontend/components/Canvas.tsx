@@ -33,18 +33,21 @@ export function Canvas({
   }, [canvasRef]);
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        overflow: "hidden",
-      }}
-    >
-      <canvas
-        ref={canvasRef}
-        width={window.innerWidth}
-        height={window.innerHeight}
-      ></canvas>
-      <Topbar setSelectedTool={setSelectedTool} selectedTool={selectedTool} />
+    <div>
+      <div
+        style={{
+          height: "100vh",
+          overflow: "hidden",
+        }}
+      >
+        <canvas
+          ref={canvasRef}
+          width={window.innerWidth}
+          height={window.innerHeight}
+        ></canvas>
+        <Topbar setSelectedTool={setSelectedTool} selectedTool={selectedTool} />
+      </div>
+     
     </div>
   );
 }
@@ -90,3 +93,4 @@ function Topbar({
     </div>
   );
 }
+
