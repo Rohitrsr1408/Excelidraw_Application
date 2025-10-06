@@ -8,6 +8,7 @@ import { CreateUserSchema, SigninSchema, RoomSchema } from "@repo/common/types";
 import { prismaClient } from "@repo/db/client";
 import cors from "cors";
 const app = express();
+const Port = process.env.PORT || 4040;
 app.use(express.json());
 app.use(cors());
 app.post("/signup", async (req, res) => {
@@ -148,6 +149,6 @@ app.post("/adminId", async (req, res) => {
     slug: room?.slug
    });
 });
-app.listen(4040, () => {
+app.listen(Port, () => {
   console.log("Server started at port 4040");
 });

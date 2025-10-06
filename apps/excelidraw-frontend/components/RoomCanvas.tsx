@@ -9,7 +9,6 @@ import Sidebar from "./Sidebar";
 export default function RoomCanvas({ roomId }: { roomId: string }) {
   const [socket, setSocket] = useState<WebSocket | null>(null);
 
-  
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
