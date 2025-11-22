@@ -30,7 +30,7 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
 
       router.push("/room"); // ✅ navigate
     } catch (error) {
-      toast.error("User doesn't Exist . Please Sign Up !!")
+      toast.error("User doesn't Exist . Please Sign Up !!");
     }
   }
 
@@ -45,15 +45,15 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
       router.push("/signin");
       console.log(response);
       toast.success("User Signed up Successfully!");
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
-
+      // @ts-expect-error Axios error has response property on unknown type
       if (error.response?.status === 400) {
         toast.error("Incorrect Inputs");
         return;
       }
 
-      toast.error("Email already registered ! Please Sign in")
+      toast.error("Email already registered ! Please Sign in");
     }
   }
 
@@ -118,7 +118,6 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
               ) : (
                 <a href="/signin">Sign In</a>
               )}
-              
             </div>
           </div>
         </div>

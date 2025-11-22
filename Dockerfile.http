@@ -1,0 +1,59 @@
+# File: Dockerfile.http (in the root of your monorepo)
+
+# ---------------------------------------------------
+# 1. Base setup with pnpm
+# ---------------------------------------------------
+FROM node:20-alpine AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+# ---------------------------------------------------
+# 2. Prune the workspace (isolate the app)
+# ---------------------------------------------------
+FROM base AS builder
+WORKDIR /app
+RUN pnpm add -g turbo
+COPY . .
+# CRITICAL: Using the package name 'http-backend' from your package.json
+RUN turbo prune http-backend --docker
+
+# ---------------------------------------------------
+# 3. Install dependencies & Build
+# ---------------------------------------------------
+FROM base AS installer
+WORKDIR /app
+
+# Copy lockfile and package.json's of isolated sub-workspace
+COPY --from=builder /app/out/json/ .
+RUN --mount=type=cache,target=/root/.pnpm-store pnpm install --frozen-lockfile
+
+# Copy source code of isolated sub-workspace
+COPY --from=builder /app/out/full/ .
+
+# Generate Prisma Client 
+# Assuming packages/db/prisma/schema.prisma is the correct path.
+# Pin to version 5 to prevent breaking changes from v7+
+RUN pnpm dlx prisma@5 generate --schema=./packages/db/prisma/schema.prisma
+
+# Build the project (This runs 'tsc -b' inside http-backend and its dependencies)
+RUN pnpm turbo build --filter=http-backend...
+
+# ---------------------------------------------------
+# 4. Production Runner
+# ---------------------------------------------------
+FROM base AS runner
+WORKDIR /app
+
+# Setup non-root user for security
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 expressjs
+USER expressjs
+
+# Copy the built app and dependencies
+COPY --from=installer --chown=expressjs:nodejs /app .
+
+EXPOSE 3001
+
+# Command to start the app, matching your "start" script output
+CMD ["node", "apps/Http-backend/dist/index.js"]

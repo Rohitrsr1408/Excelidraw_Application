@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  # --- 1. HTTP BACKEND SERVICE ---
+  http-backend:
+    container_name: http-backend
+    build:
+      context: .
+      dockerfile: Dockerfile.http
+    ports:
+      - "4040:3001" # Host 4040 -> Container 3001
+    environment:
+      - PORT=3001
+    # Reads JWT_SECRET and DATABASE_URL from .env
+    env_file:
+      - .env
+    networks:
+      - excalidraw_network
+
+  # --- 2. WEBSOCKET BACKEND SERVICE ---
+  ws-backend:
+    container_name: ws-backend
+    build:
+      context: .
+      dockerfile: Dockerfile.ws
+    ports:
+      - "8080:3002" # Host 8080 -> Container 3002
+    environment:
+      # CRITICAL: This must match the internal container port (3002)
+      - PORT=3002
+    # Reads JWT_SECRET and DATABASE_URL from .env
+    env_file:
+      - .env
+    networks:
+      - excalidraw_network
+
+  # --- 3. NEXT.JS FRONTEND SERVICE ---
+  frontend:
+    container_name: excelidraw-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.nextjs
+    ports:
+      - "3000:3000"
+    environment:
+      # FIX: Use 'localhost' and the EXTERNAL ports (4040 & 8080)
+      # This ensures the browser can reach the API from outside Docker.
+      NEXT_PUBLIC_HTTP_BACKEND_HOST: http://localhost:4040
+      NEXT_PUBLIC_WS_BACKEND_HOST: ws://localhost:8080
+    networks:
+      - excalidraw_network
+
+networks:
+  excalidraw_network:
+    driver: bridge

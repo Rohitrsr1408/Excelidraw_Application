@@ -29,7 +29,7 @@ export async function initdraw(
   socket: WebSocket
 ) {
   const ctx = canvas.getContext("2d");
-  let existingShapes: Shape[] = await getExistingShapes(roomId);
+  const existingShapes: Shape[] = await getExistingShapes(roomId);
   console.log(existingShapes);
 
   if (!ctx) return;
@@ -76,8 +76,8 @@ export async function initdraw(
   });
   canvas.addEventListener("mousemove", (e) => {
     if (clicked) {
-      let height = e.clientY - startY;
-      let width = e.clientX - startX;
+      const height = e.clientY - startY;
+      const width = e.clientX - startX;
       clearCanvas(existingShapes, ctx, canvas);
       ctx.strokeStyle = "rgba(255,255,255)";
       ctx.strokeRect(startX, startY, width, height);

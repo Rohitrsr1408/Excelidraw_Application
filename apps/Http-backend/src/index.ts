@@ -79,7 +79,7 @@ app.post("/room", middleware, async (req, res) => {
 app.get("/chats/:roomId", async (req, res) => {
   try {
     const roomId = Number(req.params.roomId);
-    console.log(req.params.roomId);
+
     const messages = await prismaClient.chat.findMany({
       where: {
         roomId: roomId,
@@ -141,15 +141,14 @@ app.post("/user", async (req, res) => {
 
 app.post("/adminId", async (req, res) => {
   const roomId = Number(req.body.roomId);
-  const room = await prismaClient.room
-    .findUnique({
-      where: { id: roomId },
-      select: { adminId: true , slug: true },
-    })
+  const room = await prismaClient.room.findUnique({
+    where: { id: roomId },
+    select: { adminId: true, slug: true },
+  });
   res.json({
     adminId: room?.adminId,
-    slug: room?.slug
-   });
+    slug: room?.slug,
+  });
 });
 app.listen(Port, () => {
   console.log("Server started at port 4040");
