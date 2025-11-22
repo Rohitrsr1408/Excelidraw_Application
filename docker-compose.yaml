@@ -45,8 +45,8 @@ services:
     environment:
       # FIX: Use 'localhost' and the EXTERNAL ports (4040 & 8080)
       # This ensures the browser can reach the API from outside Docker.
-      NEXT_PUBLIC_HTTP_BACKEND_HOST: http://localhost:4040
-      NEXT_PUBLIC_WS_BACKEND_HOST: ws://localhost:8080
+      NEXT_PUBLIC_HTTP_BACKEND_HOST: https://excelidraw-http.onrender.com
+      NEXT_PUBLIC_WS_BACKEND_HOST: wss://excelidraw-ws.onrender.com
     networks:
       - excalidraw_network
 

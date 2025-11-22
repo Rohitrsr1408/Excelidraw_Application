@@ -30,6 +30,7 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
 
       router.push("/room"); // ✅ navigate
     } catch (error) {
+      console.log(error);
       toast.error("User doesn't Exist . Please Sign Up !!");
     }
   }

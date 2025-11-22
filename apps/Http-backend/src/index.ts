@@ -9,8 +9,15 @@ import { prismaClient } from "@repo/db/client";
 import cors from "cors";
 const app = express();
 const Port = process.env.PORT || 4040;
+app.use(
+  cors({
+    origin: "*", // For testing. In strict production, replace with ["https://your-frontend.onrender.com"]
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json());
-app.use(cors());
+
 app.post("/signup", async (req, res) => {
   const parseddata = CreateUserSchema.safeParse(req.body);
   if (!parseddata.success) {
