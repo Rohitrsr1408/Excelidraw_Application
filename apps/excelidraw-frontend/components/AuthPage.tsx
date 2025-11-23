@@ -61,18 +61,18 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
   return (
     <>
       <Navbar />
-      <div className="w-screen h-screen flex justify-center items-center bg-[#F3F3F7]">
-        <div className="bg-amber-50 rounded-xl w-30% ">
-          <h1 className="text-5xl font-extrabold text-center p-4 ">
+      <div className="w-screen h-screen flex justify-center items-center bg-[#F3F3F7] ">
+        <div className="bg-amber-50 rounded-xl  w-[24rem]  sm:w-[32rem] ">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-center p-4 ">
             {isSignin ? "Sign in" : "Sign up"}
           </h1>
-          <div className="p-6 m-2 rounded w-full mt-8">
+          <div className="p-3 sm:p-6 m-2 rounded w-full mt-8">
             {/* Only show Name input in Signup */}
             {!isSignin && (
               <div className="p-2 text-black">
                 <input
                   ref={nameRef}
-                  className="p-2 w-96 font-bold h-12"
+                  className="p-1 sm:p-2 w-[20rem] sm:w-96 font-bold h-8 sm:h-12"
                   type="text"
                   minLength={3}
                   placeholder="Name"
@@ -84,7 +84,7 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
             <div className="p-2 text-black">
               <input
                 ref={usernameRef}
-                className="p-2 w-96 font-bold h-12"
+                className="p-1 sm:p-2 w-[20rem] sm:w-96 font-bold h-8 sm:h-12"
                 type="text"
                 required
                 placeholder="Email"
@@ -94,7 +94,7 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
             <div className="p-2 text-black">
               <input
                 ref={passwordRef}
-                className="p-2 w-96 font-bold h-12"
+                className="p-1 sm:p-2 w-[20rem] sm:w-96 font-bold h-8 sm:h-12"
                 type="password"
                 minLength={6}
                 required
@@ -105,7 +105,7 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
             <div className="p-2">
               <Button
                 variant="hero"
-                className="w-108 h-16 cursor-pointer text-xl mt-4"
+                className="w-[20rem] sm:w-108 h-12 sm:h-16 cursor-pointer text-xl mt-4"
                 onClick={isSignin ? signinfunction : signupfunction}
               >
                 {isSignin ? "Sign in" : "Sign up"}

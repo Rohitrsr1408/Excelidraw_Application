@@ -66,7 +66,7 @@ export default function Room() {
     <>
       <Navbar />
       <div className="w-screen h-screen flex justify-center items-center bg-[#F3F3F7]">
-        <div className="bg-amber-50 rounded-xl w-30% ">
+        <div className="bg-amber-50 rounded-xl w-[24rem] sm:w-[32rem]">
           <div className="flex justify-evenly w-full">
             <button
               onClick={() => {
@@ -74,8 +74,8 @@ export default function Room() {
               }}
               className={`${
                 !join
-                  ? "bg-amber-100  text-3xl font-bold text-center p-4 border-2 rounded w-full"
-                  : "text-3xl font-light bg-[#F3F3F7] text-center hover:bg-white hover:scale-105 transition-all p-4 border-2 rounded w-full cursor-pointer"
+                  ? "bg-amber-100  text-2xl sm:text-3xl font-bold text-center p-2 sm:p-4 border-2 rounded w-full"
+                  : "text-2xl sm:text-3xl font-light bg-[#F3F3F7] text-center hover:bg-white hover:scale-105 transition-all p-2 sm:p-4 border-2 rounded w-full cursor-pointer"
               }`}
             >
               Create Room
@@ -86,8 +86,8 @@ export default function Room() {
               }}
               className={`${
                 join
-                  ? "bg-amber-100  text-3xl font-bold text-center p-4 border-2 rounded w-full"
-                  : "text-3xl  font-extralight bg-[#F3F3F7] text-center hover:bg-white hover:scale-105 transition-all p-4 border-2 rounded w-full cursor-pointer"
+                  ? "bg-amber-100  text-2xl sm:text-3xl font-bold text-center p-2 sm:p-4 border-2 rounded w-full"
+                  : "text-2xl sm:text-3xl  font-extralight bg-[#F3F3F7] text-center hover:bg-white hover:scale-105 transition-all p-2 sm:p-4 border-2 rounded w-full cursor-pointer"
               }`}
             >
               Join Room
@@ -96,11 +96,11 @@ export default function Room() {
 
           {/* Conditionally render based on join */}
           {!join && (
-            <div className={`p-6 m-2 rounded w-full mt-8`}>
+            <div className={`p-4 sm:p-6 m-2 rounded w-full mt-8`}>
               <div className={`p-2 text-black `}>
                 <input
                   ref={roomNameRef}
-                  className="p-2 w-96 font-bold h-12"
+                  className="p-2 w-[20rem] sm:w-96 font-bold h-12"
                   type="text"
                   minLength={3}
                   placeholder="Enter Room Name"
@@ -111,7 +111,7 @@ export default function Room() {
               <div className={`p-2 `}>
                 <Button
                   variant="hero"
-                  className="w-108 h-16 cursor-pointer text-xl mt-4"
+                  className="w-[20rem] sm:w-108 h-12 sm:h-16 cursor-pointer text-xl mt-4"
                   onClick={createRoom}
                 >
                   Create Room & Join
@@ -121,10 +121,10 @@ export default function Room() {
           )}
 
           {join && (
-            <div className={"p-6 m-2 rounded w-full mt-8 "}>
+            <div className={"p-4 sm:p-6 m-2 rounded w-full mt-8 "}>
               <div className="p-2 text-black flex flex-col gap-4">
                 <input
-                  className="p-2 w-96 font-bold h-12"
+                  className="p-2 w-[20rem] sm:w-96 font-bold h-12"
                   ref={roomRef}
                   type="text"
                   minLength={3}
@@ -133,7 +133,7 @@ export default function Room() {
                 />
                 <input
                   ref={userIDRef}
-                  className="p-2 w-96 font-bold h-12"
+                  className="p-2 w-[20rem] sm:w-96 font-bold h-12"
                   type="text"
                   placeholder="Enter Admin ID"
                   required
@@ -143,7 +143,7 @@ export default function Room() {
               <div className="p-2">
                 <Button
                   variant="hero"
-                  className="w-108 h-16 cursor-pointer text-xl mt-4"
+                  className="w-[20rem] sm:w-108 h-12  sm:h-16 cursor-pointer text-xl mt-4"
                   onClick={JoinRoom}
                 >
                   Join Room
